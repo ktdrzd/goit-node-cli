@@ -57,9 +57,7 @@ async function addContact(name, email, phone) {
     data.push(newContact);
     await fs.writeFile(contactsPath, JSON.stringify(data));
     return newContact;
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 }
 
 export { listContacts, getContactById, removeContact, addContact };
