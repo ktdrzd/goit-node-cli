@@ -33,13 +33,14 @@ async function removeContact(contactId) {
     if (!contact) {
       return null;
     }
-    const newData = data.filter((contact) => contact.id === contactId);
-    await fs.writeFile(contactsPath, JSON.stringify(newData));
-    return contact;
+    const newData = data.filter((contact) => contact.id !== contactId);
+    await fs.writeFile(contactsPath, JSON.stringify(newData)); 
+    return contact; 
   } catch (error) {
-    console.log("Something went wrong..." + error.message);
+    console.log("Something went wrong..." + error.message)
   }
 }
+
 
 async function addContact(name, email, phone) {
   const newContact = {
